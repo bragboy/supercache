@@ -6,13 +6,13 @@ require 'supercache/version'
 Gem::Specification.new do |spec|
   spec.name          = "supercache"
   spec.version       = Supercache::VERSION
-  spec.authors       = ["Bragadeesh J"]
-  spec.email         = ["bragboy@gmail.com"]
+  spec.authors       = ['Bragadeesh J']
+  spec.email         = ['bragboy@gmail.com']
 
   spec.summary       = %q{Speed up Development time}
   spec.description   = %q{SuperCache speeds up development time by caching recurring requests and lets you concentrate only on the objects you are changing/playing around with in a complete un-obtrusive manner}
   spec.homepage      = 'https://github.com/bragboy/supercache'
-  spec.license       = "MIT"
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
