@@ -1,1 +1,5 @@
-Welcome to my Supercache!
+Supercache is currently <%= Rails.cache.read(:supercache)? 'ON' : 'OFF' %>
+
+<br>
+
+<%= link_to 'Toggle', flip_dashboard_index_path %>
