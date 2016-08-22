@@ -1,28 +1,20 @@
 # Supercache
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/supercache`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Supercache is a totally unobtrusive addon that runs along your Rails application rapidly improving your development time by caching ActiveRecord Queries across requests (unlike ActiveRecord QueryCache which happens only within a single request). This is especially helpful when your local database is located elsewhere and avoids costly DNS lookups for each and every query.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application’s Gemfile:
 
 ```ruby
 gem 'supercache'
 ```
 
-And then execute:
+And mount the dashboard in your `config/routes.rb`:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install supercache
-
-## Usage
-
-TODO: Write usage instructions here
+```ruby
+mount Supercache::Engine, at: "supercache"
+```
 
 ## Development
 
@@ -32,10 +24,18 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/supercache. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bragboy/supercache. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+## Scope for Contribution
+
+1. RSpec Integration
+2. Travis Integration
+3. Code Climate Integration
+4. Moving all assets from CDN to the Gem through Vendor
+5. Add Caching Support for HTTP Requests
+6. Add Exceptions to Caching
