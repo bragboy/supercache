@@ -1,5 +1,13 @@
-Supercache is currently <%= Rails.cache.read(:supercache)? 'ON' : 'OFF' %>
-
-<br>
-
-<%= link_to 'Toggle', flip_dashboard_index_path %>
+<div class="row">
+  <div class="col s12">
+    <p class="flow-text">
+      Supercache is 
+      <% if Rails.cache.read(:supercache) %>
+        <span class='teal-text'> active </span>
+      <% else %>
+        <span class='red-text'> stopped </span>
+      <% end %>
+    </p>    
+    <%= link_to 'Toggle', flip_dashboard_index_path, class: 'waves-effect waves-light btn brown' %>
+  </div>
+</div>

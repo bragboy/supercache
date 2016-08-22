@@ -1,8 +1,10 @@
 module Supercache
   class DashboardController < ActionController::Base
+    layout 'supercache/application'
+
     def flip
-      if cache.read(:supercache) 
-        cache.clear #Deliberately Clear all the cache available
+      if cache.read(:supercache)
+        cache.delete(:supercache)
       else
         cache.write(:supercache, true)
       end
