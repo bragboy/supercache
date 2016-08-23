@@ -1,13 +1,22 @@
-<div class="row">
-  <div class="col s12">
-    <p class="flow-text">
-      Supercache is 
-      <% if Rails.cache.read(:supercache) %>
-        <span class='teal-text'> active </span>
-      <% else %>
-        <span class='red-text'> stopped </span>
-      <% end %>
-    </p>    
-    <%= link_to 'Toggle', flip_dashboard_index_path, class: 'waves-effect waves-light btn brown' %>
-  </div>
-</div>
+<table class="highlight">
+  <tbody>
+    <tr>
+      <td><h5>Active Record Cache</h5></td>
+      <td>
+        <% if @ar_cache %>
+          <%= link_to 'ON', flip_dashboard_index_path, class: 'right waves-effect waves-light btn green darken-3' %>
+        <% else %>
+          <%= link_to 'OFF', flip_dashboard_index_path, class: 'right waves-effect waves-light btn red lighten-1' %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><h5>RSolr Cache</h5></td>
+      <td><a class='right waves-effect waves-light btn grey'>N/A</a></td>
+    </tr>
+    <tr>
+      <td><h5>HTTParty Cache</h5></td>
+      <td><a class='right waves-effect waves-light btn grey'>N/A</a></td>
+    </tr>
+  </tbody>
+</table>

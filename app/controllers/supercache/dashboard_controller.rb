@@ -2,6 +2,10 @@ module Supercache
   class DashboardController < ActionController::Base
     layout 'supercache/application'
 
+    def index
+      @ar_cache = cache.read(:supercache)
+    end
+
     def flip
       if cache.read(:supercache)
         cache.delete(:supercache)
