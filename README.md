@@ -1,5 +1,9 @@
 # Supercache
 
+[![Build Status](https://travis-ci.org/bragboy/supercache.svg?branch=master)](https://travis-ci.org/bragboy/supercache)
+[![Code Climate](https://codeclimate.com/github/bragboy/supercache/badges/gpa.svg)](https://codeclimate.com/github/bragboy/supercache)
+[![security](https://hakiri.io/github/bragboy/supercache/master.svg)](https://hakiri.io/github/bragboy/supercache/master)
+
 Supercache is a totally unobtrusive addon that runs along your Rails application rapidly improving your development time by caching ActiveRecord Queries across requests (unlike ActiveRecord QueryCache which happens only within a single request). This is especially helpful when your local database is located elsewhere and avoids costly DNS lookups for each and every query.
 
 ## Installation
@@ -34,8 +38,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## Scope for Contribution
 
 1. RSpec Integration
-2. Travis Integration
-3. Code Climate Integration
-4. Moving all assets from CDN to the Gem through Vendor
-5. Add Caching Support for HTTP Requests
-6. Add Exceptions to Caching
+2. Add Caching Support for HTTP Requests
+3. Add RSolr Cache
+4. Add Exceptions to Caching

@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe Supercache do
   it 'has a version number' do
-    expect(Supercache::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(true).to eq(true)
+    expect(Supercache::VERSION).to eq '0.3'
   end
 end
