@@ -38,8 +38,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## Scope for Contribution
 
 1. RSpec Integration
-2. Travis Integration
-3. Code Climate Integration
-4. Moving all assets from CDN to the Gem through Vendor
-5. Add Caching Support for HTTP Requests
-6. Add Exceptions to Caching
+2. Add Caching Support for HTTP Requests
+3. Add RSolr Cache
+4. Add Exceptions to Caching
