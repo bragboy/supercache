@@ -11,7 +11,7 @@ Supercache is a totally unobtrusive addon that runs along your Rails application
 Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'supercache'
+gem 'supercache', group: :development
 ```
 
 And mount the dashboard in your `config/routes.rb`:
