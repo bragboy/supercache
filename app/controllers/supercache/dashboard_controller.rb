@@ -2,15 +2,18 @@ module Supercache
   class DashboardController < ActionController::Base
     layout 'supercache/application'
 
+    before_filter :load_cache, only: :flip
+
     def index
-      @ar_cache = cache.read(:supercache)
+      @ar_cache = cache.read(:ar_supercache)
+      @http_cache = cache.read(:http_supercache)
     end
 
     def flip
-      if cache.read(:supercache)
-        cache.delete(:supercache)
+      if cache.read(@cache)
+        cache.delete(@cache)
       else
-        cache.write(:supercache, true)
+        cache.write(@cache, true)
       end
       redirect_to :root
     end
@@ -19,6 +22,10 @@ module Supercache
 
     def cache
       Rails.cache
+    end
+
+    def load_cache
+      @cache = params[:cache]
     end
   end
 end
