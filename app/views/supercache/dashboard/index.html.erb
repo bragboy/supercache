@@ -4,9 +4,9 @@
       <td><h5>Active Record Cache</h5></td>
       <td>
         <% if @ar_cache %>
-          <%= link_to 'ON', flip_dashboard_index_path, class: 'right waves-effect waves-light btn green darken-3' %>
+          <%= link_to 'ON', flip_dashboard_index_path(cache: 'ar_supercache'), class: 'right waves-effect waves-light btn green darken-3' %>
         <% else %>
-          <%= link_to 'OFF', flip_dashboard_index_path, class: 'right waves-effect waves-light btn red lighten-1' %>
+          <%= link_to 'OFF', flip_dashboard_index_path(cache: 'ar_supercache'), class: 'right waves-effect waves-light btn red lighten-1' %>
         <% end %>
       </td>
     </tr>
@@ -16,7 +16,13 @@
     </tr>
     <tr>
       <td><h5>HTTParty Cache</h5></td>
-      <td><a class='right waves-effect waves-light btn grey'>N/A</a></td>
+      <td>
+        <% if @http_cache %>
+          <%= link_to 'ON', flip_dashboard_index_path(cache: 'http_supercache'), class: 'right waves-effect waves-light btn green darken-3' %>
+        <% else %>
+          <%= link_to 'OFF', flip_dashboard_index_path(cache: 'http_supercache'), class: 'right waves-effect waves-light btn red lighten-1' %>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>
