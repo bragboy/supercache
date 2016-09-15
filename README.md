@@ -30,6 +30,16 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/bragboy/supercache. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+### Running the tests
+
+We're using the
+[appraisal](https://github.com/thoughtbot/appraisal) gem to run our test
+suite against multiple versions of Rails. Type `rake -T` for a complete list of
+available tasks.
+
+The RSpec test suite can be run with `rake`, or
+`rake appraisal:rails4.0` to include Rails-specific specs.
+
 
 ## License
 
