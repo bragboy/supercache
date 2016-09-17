@@ -48,6 +48,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## Scope for Contribution
 
 1. RSpec Integration
-2. Add Caching Support for HTTP Requests
-3. Add RSolr Cache
-4. Add Exceptions to Caching
+2. Add Exceptions to Caching
