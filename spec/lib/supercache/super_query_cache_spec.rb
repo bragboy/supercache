@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rails_helper'
 
 if RUBY_VERSION < "2.0"
   describe ActiveRecord::ConnectionAdapters::QueryCache do
