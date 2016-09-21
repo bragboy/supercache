@@ -7,13 +7,15 @@ require File.expand_path('../dummy_app/config/environment', __FILE__)
 
 require 'rspec/rails'
 require 'database_cleaner'
-# require "orm/#{CI_ORM}"
 
 Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
 
 Rails.backtrace_cleaner.remove_silencers!
 
 RSpec.configure do |config|
+
+  config.use_transactional_fixtures = true
+
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
