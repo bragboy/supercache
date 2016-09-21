@@ -5,7 +5,15 @@ rvm:
   - 2.3.1
   - ruby-head
 
-before_install: gem install bundler -v 1.10.6
+before_install: gem install bundler
+
+before_script:
+  - cd spec/dummy_app
+  - bundle exec rake db:create db:migrate
+  - cd ../../
+
+
+cache: bundler
 
 gemfile:
   - gemfiles/rails_4.0.gemfile
