@@ -3,6 +3,9 @@ appraise "rails-4.0" do
   gem "sqlite3"
   gem "database_cleaner"
   gem "sunspot_rails"
+  gem "sunspot_solr"
+  gem 'sunspot-rails-tester'
+  gem 'sunspot_matchers'
 end
 
 appraise "rails-4.1" do
@@ -10,6 +13,9 @@ appraise "rails-4.1" do
   gem "sqlite3"
   gem "database_cleaner"
   gem "sunspot_rails"
+  gem "sunspot_solr"
+  gem 'sunspot-rails-tester'
+  gem 'sunspot_matchers'
 end
 
 appraise "rails-4.2" do
@@ -17,6 +23,9 @@ appraise "rails-4.2" do
   gem "sqlite3"
   gem "database_cleaner"
   gem "sunspot_rails"
+  gem "sunspot_solr"
+  gem 'sunspot-rails-tester'
+  gem 'sunspot_matchers'
 end
 
 appraise "rails-5.0" do
@@ -24,4 +33,7 @@ appraise "rails-5.0" do
   gem "sqlite3"
   gem "database_cleaner"
   gem "sunspot_rails"
+  gem "sunspot_solr"
+  gem 'sunspot-rails-tester'
+  gem 'sunspot_matchers'
 end

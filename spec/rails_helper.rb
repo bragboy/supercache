@@ -8,19 +8,34 @@ require File.expand_path('../dummy_app/config/environment', __FILE__)
 require 'rspec/rails'
 require 'database_cleaner'
 
-Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
 
 Rails.backtrace_cleaner.remove_silencers!
 
+Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
+
+$original_sunspot_session = Sunspot.session
+
+
 RSpec.configure do |config|
 
-  config.use_transactional_fixtures = true
+  config.before do
+    Sunspot.session = SunspotMatchers::SunspotSessionSpy.new(Sunspot.session)
+  end
+
+  config.before :each, solr: true do
+    Sunspot::Rails::Tester.start_original_sunspot_session
+    Sunspot.session = $original_sunspot_session
+    Sunspot.remove_all!
+  end
+
+  # config.use_transactional_fixtures = true
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
 
   config.include RSpec::Matchers
+  config.include SunspotMatchers
 
   config.before do |example|
     DatabaseCleaner.strategy = (CI_ORM == :mongoid || example.metadata[:js]) ? :truncation : :transaction

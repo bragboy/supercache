@@ -6,5 +6,8 @@ gem "rails", "4.2"
 gem "sqlite3"
 gem "database_cleaner"
 gem "sunspot_rails"
+gem "sunspot_solr"
+gem "sunspot-rails-tester"
+gem "sunspot_matchers"
 
 gemspec :path => "../"
