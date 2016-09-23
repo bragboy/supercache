@@ -9,7 +9,6 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'fileutils'
 
-
 Rails.backtrace_cleaner.remove_silencers!
 
 Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
@@ -17,6 +16,7 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
 FileUtils.mkdir_p './spec/dummy_app/tmp/cache'
 
 $original_sunspot_session = Sunspot.session
+
 
 
 RSpec.configure do |config|

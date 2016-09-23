@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 /Gemfile.lock
+/solr
