@@ -21,10 +21,6 @@ $original_sunspot_session = Sunspot.session
 
 RSpec.configure do |config|
 
-  config.before do
-    Sunspot.session = SunspotMatchers::SunspotSessionSpy.new(Sunspot.session)
-  end
-
   config.before :each, solr: true do
     Sunspot::Rails::Tester.start_original_sunspot_session
     Sunspot.session = $original_sunspot_session
@@ -38,7 +34,6 @@ RSpec.configure do |config|
   end
 
   config.include RSpec::Matchers
-  config.include SunspotMatchers
 
   config.before do |example|
     DatabaseCleaner.strategy = (CI_ORM == :mongoid || example.metadata[:js]) ? :truncation : :transaction

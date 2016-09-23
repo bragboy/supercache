@@ -8,6 +8,5 @@ gem "database_cleaner"
 gem "sunspot_rails"
 gem "sunspot_solr"
 gem "sunspot-rails-tester"
-gem "sunspot_matchers"
 
 gemspec :path => "../"
