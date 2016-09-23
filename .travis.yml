@@ -11,6 +11,7 @@ before_script:
   - cd spec/dummy_app
   - bundle exec rake db:create db:migrate
   - cd ../../
+  - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 SOLR_CONFS="schema.xml solrconfig.xml" SOLR_DOCS=custom_docs.json bash
 
 
 cache: bundler
