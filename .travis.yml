@@ -3,15 +3,13 @@ rvm:
   - 1.9.3
   - 2.2.5
   - 2.3.1
-  - ruby-head
 
 before_install: gem install bundler
 
 before_script:
-  - cd spec/dummy_app
+  - cd spec/test_app
   - bundle exec rake db:create db:migrate
   - cd ../../
-  - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=5.3.1  SOLR_COLLECTION=test SOLR_COLLECTION_CONF=/home/travis/build/bragboy/supercache/spec/support/solr bash
 
 cache: bundler
 
@@ -29,6 +27,3 @@ matrix:
     gemfile: gemfiles/rails_4.2.gemfile
   - rvm: 1.9.3
     gemfile: gemfiles/rails_5.0.gemfile
-
-  allow_failures:
-  - rvm: ruby-head

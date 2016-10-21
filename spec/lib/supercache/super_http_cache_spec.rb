@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'rails_helper'
 
 describe Net::HTTP do
   it 'should overwrite request with request_with_superhttpcache' do

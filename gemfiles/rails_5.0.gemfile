@@ -4,9 +4,5 @@ source "https://rubygems.org"
 
 gem "rails", "5.0"
 gem "sqlite3"
-gem "database_cleaner"
-gem "sunspot_rails"
-gem "sunspot_solr"
-gem "sunspot-rails-tester"
 
 gemspec :path => "../"
