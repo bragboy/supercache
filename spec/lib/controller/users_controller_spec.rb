@@ -16,4 +16,16 @@ describe UsersController,type: :controller do
     end
   end
 
+  context "superhttpcache" do
+    before do
+      Rails.cache.clear
+    end
+    it 'should cache http request' do
+      Rails.cache.write(:http_supercache, true)
+      expect(Rails.cache.read("a7ba33136cf723c9ac70c38e911012533f230b91")).to eq nil
+      get :http_request
+      expect(Rails.cache.read("a7ba33136cf723c9ac70c38e911012533f230b91")).not_to eq nil
+    end
+  end
+
 end
