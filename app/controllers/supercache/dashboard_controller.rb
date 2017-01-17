@@ -8,9 +8,10 @@ module Supercache
     def index
       @ar_cache = cache.read(:ar_supercache)
       @http_cache = cache.read(:http_supercache)
+      @except_queries = cache.read(:except) || []
     end
 
-    def except_list.
+    def except_list
       queries = cache.read(:except) || []
       unless queries.try(:include?, @query)
         queries.push @query 
