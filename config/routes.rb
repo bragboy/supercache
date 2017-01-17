@@ -4,6 +4,7 @@ Supercache::Engine.routes.draw do
   resources :dashboard, only: [:index] do
     collection do
       get :flip
+      post :except_list
     end
   end
 end

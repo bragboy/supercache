@@ -22,3 +22,24 @@
     </tr>
   </tbody>
 </table>
+<h5>Except queries list</h5>
+<form action="/supercache/dashboard/except_list" method="post">
+  Add query:  <%= text_area_tag 'query' %>
+  <%= submit_tag %>
+</form>
+<% if @except_queries.present? %>
+  <table>
+    <tr>
+      <td>
+        Queries
+      </td>
+    </tr>
+    <% @except_queries.each do |query|  %>
+      <tr>
+        <td>
+          <%= query %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

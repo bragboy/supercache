@@ -3,10 +3,20 @@ module Supercache
     layout 'supercache/application'
 
     before_filter :load_cache, only: :flip
+    before_filter :load_query, only: :except_list
 
     def index
       @ar_cache = cache.read(:ar_supercache)
       @http_cache = cache.read(:http_supercache)
+    end
+
+    def except_list.
+      queries = cache.read(:except) || []
+      unless queries.try(:include?, @query)
+        queries.push @query 
+      end
+      cache.write(:except, queries)
+      redirect_to :root
     end
 
     def flip
@@ -27,5 +37,10 @@ module Supercache
     def load_cache
       @cache = params[:cache]
     end
+
+    def load_query
+      @query = params[:query]
+    end
+
   end
 end
