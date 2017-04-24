@@ -1,5 +1,6 @@
 module Supercache
   class DashboardController < ActionController::Base
+    protect_from_forgery
     layout 'supercache/application'
 
     before_filter :load_cache, only: :flip
