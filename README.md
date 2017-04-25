@@ -40,6 +40,10 @@ Ensure that you turn it off, otherwise you may end up observing your query resul
 
 Initially I had only ActiveRecord in mind, however while developing I saw a bunch of redundant HTTP requests going from my server to outside world which often are stale themselves. So why not cache it? And thus came the super http cache. This could be typically used if your server is using external requests and that you don't care if they are not fresh.
 
+## Supercache is Super-unobtrusive
+
+While developing supercache, I had wanted to keep it as unobtrusive as possible. Supercache does not bother what type of caching is implemented in your development environment. It could be file cache, Redis, Memcache, In-memory caching, supercache will simply work well with any of them!
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
