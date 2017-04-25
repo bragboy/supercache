@@ -30,9 +30,15 @@ You will see two types of caching by default. Activerecord query caching and HTT
 
 ## How it works
 
-Please note supercache is to improve the development time and I don't recommend to use it in any other environment. It is vital that you understand the pros and cons of caching before using this. 
+Please note supercache is to speed up development environment and I strongly recommend against using it in any other environment like a staging or production. It is vital that you understand the pros and cons of caching across requests. 
 
-By default, Rails caches queries 
+By default rails caches duplicate queries that are fired within the same request. In instances where you are focused mainly only UI related issues and that you have to refresh your page many times, you will have to painfully wait for the queries to get completed. During these times, Supercache will be a true bliss. All you have to do is turn it ON and your queries are cached across all requests.
+
+Ensure that you turn it off, otherwise you may end up observing your query results are stale. 
+
+## HTTP Caching
+
+Initially I had only ActiveRecord in mind, however while developing I saw a bunch of redundant HTTP requests going from my server to outside world which often are stale themselves. So why not cache it? And thus came the super http cache. This could be typically used if your server is using external requests and that you don't care if they are not fresh.
 
 ## Development
 
@@ -53,7 +59,6 @@ available tasks.
 
 The RSpec test suite can be run with `rake`, or
 `rake appraisal:rails4.0` to include Rails-specific specs.
-
 
 ## License
 
