@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/bragboy/supercache.svg?branch=master)](https://travis-ci.org/bragboy/supercache)
 [![Code Climate](https://codeclimate.com/github/bragboy/supercache/badges/gpa.svg)](https://codeclimate.com/github/bragboy/supercache)
 [![security](https://hakiri.io/github/bragboy/supercache/master.svg)](https://hakiri.io/github/bragboy/supercache/master)
-
+d
 Supercache is a totally unobtrusive addon that runs along your Rails application rapidly improving your development time by caching ActiveRecord Queries across requests (unlike ActiveRecord QueryCache which happens only within a single request). This is especially helpful when your local database is located elsewhere and avoids costly DNS lookups for each and every query.
 
 ## Installation
@@ -17,8 +17,22 @@ gem 'supercache', group: :development
 And mount the dashboard in your `config/routes.rb`:
 
 ```ruby
-mount Supercache::Engine, at: "supercache"
+mount Supercache::Engine, at: "supercache" if Rails.env.development?
 ```
+
+## Customize Supercache
+
+Once you've included supercache in your devleopment environment, customizing it will be as simple as heading to loclahost:3000/supercache.
+
+![Screenshot](wiki/screenshot.png)
+
+You will see two types of caching by default. Activerecord query caching and HTTP Caching. 
+
+## How it works
+
+Please note supercache is to improve the development time and I don't recommend to use it in any other environment. It is vital that you understand the pros and cons of caching before using this. 
+
+By default, Rails caches queries 
 
 ## Development
 
