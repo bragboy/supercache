@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/bragboy/supercache.svg?branch=master)](https://travis-ci.org/bragboy/supercache)
 [![Code Climate](https://codeclimate.com/github/bragboy/supercache/badges/gpa.svg)](https://codeclimate.com/github/bragboy/supercache)
 [![security](https://hakiri.io/github/bragboy/supercache/master.svg)](https://hakiri.io/github/bragboy/supercache/master)
-d
+
 Supercache is a totally unobtrusive addon that runs along your Rails application rapidly improving your development time by caching ActiveRecord Queries across requests (unlike ActiveRecord QueryCache which happens only within a single request). This is especially helpful when your local database is located elsewhere and avoids costly DNS lookups for each and every query.
 
 ## Installation
