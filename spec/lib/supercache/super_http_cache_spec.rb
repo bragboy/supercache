@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe SuperHttpCache do
-  it 'should include SuperQueryCache in  ActiveRecord::ConnectionAdapters::AbstractAdapter ancestors' do
-    expect(Net::HTTP.ancestors).to include subject
+describe Net::HTTP do
+  it 'should overwrite request with request_with_superhttpcache' do
+    expect(Net::HTTP.instance_method(:request)).to eq Net::HTTP.instance_method(:request_with_superhttpcache)
   end
 end

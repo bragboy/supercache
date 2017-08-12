@@ -28,4 +28,26 @@ describe UsersController,type: :controller do
     end
   end
 
+  context "superhttpcache" do
+    before do
+      Rails.cache.clear
+      Rails.cache.write(:sql_exp, {})
+    end
+    it 'should add exception to the sql' do
+      get :add_to_sql_exception, sql: "Select * from users", status: "false"
+      expect(Rails.cache.read(:sql_exp)["Select * from users"]).to eq true
+    end
+  end
+
+  context "superhttpcache" do
+    before do
+      Rails.cache.clear
+      Rails.cache.write(:http_exp, {})
+    end
+    it 'should add exception to http request' do
+      get :add_to_http_exception, url: "ethigeek.com", status: "false"
+      expect(Rails.cache.read(:http_exp)["ethigeek.com"]).to eq true
+    end
+  end
+
 end
