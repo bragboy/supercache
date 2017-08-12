@@ -22,3 +22,61 @@
     </tr>
   </tbody>
 </table>
+<% if @ar_cache %>
+  <table class="highlight">
+    <tbody>
+      <thead>
+        <th>
+          SQL STATEMENT
+        </th>
+        <th>
+          CACHE
+        </th>
+      </thead>
+
+      <% @sql_exp.try(:each) do |key,value| %>
+        <tr>
+          <td>
+            <%= key %>
+          </td>
+          <td>
+          <% if value %>
+            <%= link_to "ENABLE", sql_exception_dashboard_index_path(status: true ,sql: key), class: 'waves-effect waves-light btn green darken-3' %>
+          <% else %>
+            <%= link_to "DISABLE", sql_exception_dashboard_index_path(status: false,sql: key), class: 'waves-effect waves-light btn red lighten-1' %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<% if @http_cache %>
+  <table class="highlight">
+    <tbody>
+      <thead>
+        <th>
+          URL STATEMENT
+        </th>
+        <th>
+          CACHE
+        </th>
+      </thead>
+
+      <% @http_exp.try(:each) do |key,value| %>
+        <tr>
+          <td>
+            <%= key %>
+          </td>
+          <td>
+          <% if value %>
+            <%= link_to "ENABLE", http_exception_dashboard_index_path(status: true ,url: key), class: 'waves-effect waves-light btn green darken-3' %>
+          <% else %>
+            <%= link_to "DISABLE", http_exception_dashboard_index_path(status: false,url: key), class: 'waves-effect waves-light btn red lighten-1' %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
