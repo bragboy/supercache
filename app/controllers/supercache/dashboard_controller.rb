@@ -3,7 +3,7 @@ module Supercache
     protect_from_forgery
     layout 'supercache/application'
 
-    before_filter :load_cache, only: :flip
+    before_action :load_cache, only: :flip
 
     def index
       @ar_cache = cache.read(:ar_supercache)
